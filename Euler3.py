@@ -1,12 +1,10 @@
 ## 3)Find the largest prime factor of a composite number.
 
 def is_prime(n):
-    check_div=2
-    while check_div<n/2+1:
-        if n%check_div==0:
+    for i in xrange(2,int(n**0.5)+1):
+        if n%i==0:
             return False
-        check_div=check_div+1
-    return True
+        return True
 
 def largest_prime_factor(n):
     plist=[1]   #list of prime factors of n

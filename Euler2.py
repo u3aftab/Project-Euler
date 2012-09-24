@@ -15,3 +15,13 @@ def even_fib(upper):
 	print sum
 
 even_fib(4000000)
+
+# Refractored code
+
+x_1, x= 1, 1
+even_sum=0
+while x<4000000:
+    if x%2==0:
+        even_sum+=x
+    x_1, x= x, x_1+x
+print even_sum
