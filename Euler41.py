@@ -4,7 +4,6 @@ def is_prime(n):
             return False
     return True
 
-s=str
 import itertools
 
 dig_str='123456789'

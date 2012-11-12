@@ -1,20 +1,24 @@
-def vec_x(a, b):
-    return sum(map(lambda x: x[0]*x[1], zip(a, b)))
+## How many different ways can $2 be made using any number of coins?
+## 1p, 2p, 5p, 10p, 20p, 50p, $1 (100p) and $2 (200p).
 
-import itertools
+def not_in(l1, l2): ##l2 is a list of lists
+    for x in l1:
+        l2=filter(lambda y: x not in y, l2)
+    return l2
 
-def how_many_ways(tup, use_each=True):         #each element must be used
-    if sum(tup)==0 and use_each:
-        return 0
-    else
-
-
-
-
-curr=[1, 2, 5, 10, 20, 50, 100, 200]
-
-for i in xrange(1,9):
-    cent_gen=itertools.combinations(curr, i)
-    # using all the cents in the list that is indvidual cent_gen element,
-    # how many ways can you sum to 200
-
+coins=[1, 2, 5, 10, 20, 50, 100, 200];
+combs=[[], [[1]], [[2], [1, 1]]]
+i=3
+coins_curr_index=2 #include this many first values from coins 
+while i<201:
+    temp=[]
+    for x in xrange(coins_curr_index):
+        valid_arrs=not_in(coins[:x] ,combs[i-coins[x]])
+        for each_arr in valid_arrs:
+            temp.append(each_arr+[coins[x]])                      
+    if i==coins[coins_curr_index]:
+        coins_curr_index+=1
+        temp.append([i])
+    combs.append(temp)
+    i+=1
+print len(combs[200])
